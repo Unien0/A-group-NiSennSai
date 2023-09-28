@@ -25,8 +25,8 @@ MonoBehaviour:
     fontStyle: 1
   - keyChar: '#'
     textColor: {r: 1, g: 1, b: 1, a: 1}
-    backgroundColor: {r: 0.5058824, g: 0.84705883, b: 0.81960785, a: 1}
-    textAlignment: 3
+    backgroundColor: {r: 0.23001064, g: 0.6698113, b: 0.6315678, a: 1}
+    textAlignment: 4
     fontStyle: 1
   - keyChar: '@'
     textColor: {r: 1, g: 1, b: 1, a: 1}
@@ -37,4 +37,9 @@ MonoBehaviour:
     textColor: {r: 1, g: 1, b: 1, a: 1}
     backgroundColor: {r: 0.5903926, g: 0.12967247, b: 0.8867924, a: 1}
     textAlignment: 4
-    fontStyle: 0
+    fontStyle: 1
+  - keyChar: "\uFF01"
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    backgroundColor: {r: 0.17531623, g: 0.764151, b: 0.111018136, a: 1}
+    textAlignment: 4
+    fontStyle: 1

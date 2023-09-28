@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+//委任イベントのスクリプトについて
 public static class EventHandler
 {
+    #region BGMとSE関連
     //シーンロード後のトリガーイベント
     public static event Action AfterSceneLoadedEvent;
     public static void CallAfterSceneLoadedEvent()
@@ -25,4 +27,5 @@ public static class EventHandler
     {
         PlaySoundEvent?.Invoke(soundName);
     }
+    #endregion
 }

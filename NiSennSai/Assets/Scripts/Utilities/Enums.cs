@@ -1,4 +1,6 @@
-﻿public enum PersonaType
+﻿//enumに関する
+
+public enum PersonaType
 {
 
 }
