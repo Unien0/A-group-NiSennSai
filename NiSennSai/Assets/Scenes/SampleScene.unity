@@ -813,6 +813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9162018479e2e6449a6a397b495e41e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: c619cdd6b94fcc841998344e11cad092, type: 2}
 --- !u!95 &1602755193
 Animator:
   serializedVersion: 5
@@ -945,6 +946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c034ec5d0a827942bc28a85437c0c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: c619cdd6b94fcc841998344e11cad092, type: 2}
 --- !u!1 &2016290514
 GameObject:
   m_ObjectHideFlags: 0
