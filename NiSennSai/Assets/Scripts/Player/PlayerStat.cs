@@ -6,8 +6,18 @@ using UnityEngine;
 public class PlayerStat : MonoBehaviour
 {
     public PlayerData_SO playerData;
+    public int hp
+    {
+        //PlayerのHPをゲットする
+        get { if (playerData != null) return playerData.playerHP; else return 0; }
+        set { playerData.playerHP = value; }
+    }
+    private float speed
+    {
+        //Playerのスピード値を取得する
+        get { if (playerData != null) return playerData.playerSpeed; else return 0; }
 
-
+    }
     void Start()
     {
         

@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e044101bc48fdf04cb537e21a0dcf4e5, type: 3}
   m_Name: PlayerData_SO
   m_EditorClassIdentifier: 
+  playerName: 
+  playerIcon: {fileID: 0}
+  playerOnWorldSprite: {fileID: 0}
+  playerDescription: 
+  playerHP: 0
+  playerSpeed: 5
