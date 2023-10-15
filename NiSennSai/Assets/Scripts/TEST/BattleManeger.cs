@@ -13,16 +13,6 @@ public class BattleManeger : MonoBehaviour
     // 制限時間
     [SerializeField] private float MaxTime;
 
-    // ◆ Drow系列
-    // 書き順保存(true = 右回り)
-    [SerializeField] private bool Rhigth;
-    // ルート保存用変数
-
-
-    // ◆ Shape系列
-    // 四角形
-    [SerializeField] private GameObject[] Square;
-
     // ◆ Player系列
     // プレイヤーの体力
     [SerializeField] private int PlayerHP;
@@ -42,7 +32,7 @@ public class BattleManeger : MonoBehaviour
     // 敵の種類名の取得用変数
     [SerializeField]private EnemyName EnemyType;
     // 敵の体力
-    private int EnemyHP;
+    public static int EnemyHP;
     // 行動待機時間
     [SerializeField] private float ActionCD;
     // 行動内容
