@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class DrawManeger : MonoBehaviour
 {
@@ -27,6 +29,9 @@ public class DrawManeger : MonoBehaviour
     }
     [SerializeField] private DrowShape SelectShape;
 
+    // 一度だけ処理を行う為の変数
+    private bool fix;
+
     // 書き順算出用変数
     private bool FirstTouch;
 
@@ -47,10 +52,12 @@ public class DrawManeger : MonoBehaviour
     // 四角形
     [SerializeField] private GameObject Square;
 
+    // TEST用変数
+    [SerializeField] private TextMeshProUGUI textMeshProUGUI;
+
     void Start()
     {
         col2D = GetComponent<Collider2D>();
-        col2D.enabled = false;
     }
 
     // Update is called once per frame
@@ -70,12 +77,10 @@ public class DrawManeger : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             TrailObj.SetActive(true);
-            col2D.enabled = true;
         }
         else
         {
             TrailObj.SetActive(false);
-            col2D.enabled = false;   
         }
 
         // Vector3でマウス位置座標を取得する
@@ -90,259 +95,263 @@ public class DrawManeger : MonoBehaviour
 
     void ShapeChange()
     {
-        // 図形の表記を変更する
-        // また、表示中の図形に応じてルート処理を変更する
-        switch (SelectShape)
+        // 処理確認 = 1度だけ処理を行う
+        if (!fix)
         {
-            case DrowShape.None:
-                // 全図形の非表示
-                Square.SetActive(false);
-                break;
-            case DrowShape.Square:
-                // 四角形の表示
-                Square.SetActive(true);
-                // ルート処理
-                switch (RootCount)
-                {
-                    #region Root
-                    case 1:
-                        // 3回目以降の判定を取る場合
-                        if (Drowing)
-                        {
-                            // 右回りの場合
-                            if (TurnRight)
+            // 図形の表記を変更する
+            // また、表示中の図形に応じてルート処理を変更する
+            switch (SelectShape)
+            {
+                case DrowShape.None:
+                    // 全図形の非表示
+                    Square.SetActive(false);
+                    break;
+                case DrowShape.Square:
+                    // 四角形の表示
+                    Square.SetActive(true);
+                    // ルート処理
+                    switch (RootCount)
+                    {
+                        #region Root
+                        case 1:
+                            // 3回目以降の判定を取る場合
+                            if (Drowing)
                             {
-                                if (DrowCount == 2)
+                                // 右回りの場合
+                                if (TurnRight)
                                 {
-                                    // 次の書き順に進む
-                                    RootCount = 2;
+                                    if (DrowCount == 2)
+                                    {
+                                        // 次の書き順に進む
+                                        RootCount = 2;
+                                    }
+                                    else
+                                    {
+                                        // 初期化
+                                        FirstTouch = false;
+                                        RootCount = 0;
+                                        Drowing = false;
+                                        StrokeOrder = 0;
+                                    }
                                 }
                                 else
                                 {
-                                    // 初期化
-                                    FirstTouch = false;
-                                    RootCount = 0;
-                                    Drowing = false;
-                                    StrokeOrder = 0;
+                                    if (DrowCount == 4)
+                                    {
+                                        // 次の書き順に進む
+                                        RootCount = 4;
+                                    }
+                                    else
+                                    {
+                                        // 初期化
+                                        FirstTouch = false;
+                                        RootCount = 0;
+                                        Drowing = false;
+                                        StrokeOrder = 0;
+                                    }
                                 }
                             }
                             else
                             {
-                                if (DrowCount == 4)
-                                {
-                                    // 次の書き順に進む
-                                    RootCount = 4;
-                                }
-                                else
-                                {
-                                    // 初期化
-                                    FirstTouch = false;
-                                    RootCount = 0;
-                                    Drowing = false;
-                                    StrokeOrder = 0;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Drowing = true;
-                            if (FirstTouch)
-                            {
-                                if (DrowCount == 2)
-                                {
-                                    TurnRight = true;
-                                    RootCount = 2;
-                                }
-                                if (DrowCount == 4)
-                                {
-                                    RootCount = 4; 
-                                    TurnRight = false;
-                                }
-
                                 Drowing = true;
-                            }
-                        }
-                        break;
-                    case 2:
-                        // 3回目以降の判定を取る場合
-                        if (Drowing)
-                        {
-                            // 右回りの場合
-                            if (TurnRight)
-                            {
-                                if (DrowCount == 3)
+                                if (FirstTouch)
                                 {
-                                    // 次の書き順に進む
-                                    RootCount = 3;
+                                    if (DrowCount == 2)
+                                    {
+                                        TurnRight = true;
+                                        RootCount = 2;
+                                    }
+                                    if (DrowCount == 4)
+                                    {
+                                        RootCount = 4;
+                                        TurnRight = false;
+                                    }
+
+                                    Drowing = true;
+                                }
+                            }
+                            break;
+                        case 2:
+                            // 3回目以降の判定を取る場合
+                            if (Drowing)
+                            {
+                                // 右回りの場合
+                                if (TurnRight)
+                                {
+                                    if (DrowCount == 3)
+                                    {
+                                        // 次の書き順に進む
+                                        RootCount = 3;
+                                    }
+                                    else
+                                    {
+                                        // 初期化
+                                        FirstTouch = false;
+                                        RootCount = 0;
+                                        Drowing = false;
+                                        StrokeOrder = 0;
+                                    }
                                 }
                                 else
                                 {
-                                    // 初期化
-                                    FirstTouch = false;
-                                    RootCount = 0;
-                                    Drowing = false;
-                                    StrokeOrder = 0;
+                                    if (DrowCount == 1)
+                                    {
+                                        // 次の書き順に進む
+                                        RootCount = 1;
+                                    }
+                                    else
+                                    {
+                                        // 初期化
+                                        FirstTouch = false;
+                                        RootCount = 0;
+                                        Drowing = false;
+                                        StrokeOrder = 0;
+                                    }
                                 }
                             }
                             else
                             {
-                                if (DrowCount == 1)
-                                {
-                                    // 次の書き順に進む
-                                    RootCount = 1;                                    
-                                }
-                                else
-                                {
-                                    // 初期化
-                                    FirstTouch = false;
-                                    RootCount = 0;
-                                    Drowing = false;
-                                    StrokeOrder = 0;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Drowing = true;
-                            if (FirstTouch)
-                            {
-                                if (DrowCount == 3)
-                                {
-                                    TurnRight = true;
-                                    RootCount = 3;
-                                }
-                                if (DrowCount == 1)
-                                {
-                                    RootCount = 1;
-                                    TurnRight = false;
-                                }
-
                                 Drowing = true;
-                            }
-                        }
-                        break;
-                    case 3:
-                        // 3回目以降の判定を取る場合
-                        if (Drowing)
-                        {
-                            // 右回りの場合
-                            if (TurnRight)
-                            {
-                                if (DrowCount == 4)
+                                if (FirstTouch)
                                 {
-                                    // 次の書き順に進む
-                                    RootCount = 4;
+                                    if (DrowCount == 3)
+                                    {
+                                        TurnRight = true;
+                                        RootCount = 3;
+                                    }
+                                    if (DrowCount == 1)
+                                    {
+                                        RootCount = 1;
+                                        TurnRight = false;
+                                    }
+
+                                    Drowing = true;
+                                }
+                            }
+                            break;
+                        case 3:
+                            // 3回目以降の判定を取る場合
+                            if (Drowing)
+                            {
+                                // 右回りの場合
+                                if (TurnRight)
+                                {
+                                    if (DrowCount == 4)
+                                    {
+                                        // 次の書き順に進む
+                                        RootCount = 4;
+                                    }
+                                    else
+                                    {
+                                        // 初期化
+                                        FirstTouch = false;
+                                        RootCount = 0;
+                                        Drowing = false;
+                                        StrokeOrder = 0;
+                                    }
                                 }
                                 else
                                 {
-                                    // 初期化
-                                    FirstTouch = false;
-                                    RootCount = 0;
-                                    Drowing = false;
-                                    StrokeOrder = 0;
+                                    if (DrowCount == 2)
+                                    {
+                                        // 次の書き順に進む
+                                        RootCount = 2;
+                                    }
+                                    else
+                                    {
+                                        // 初期化
+                                        FirstTouch = false;
+                                        RootCount = 0;
+                                        Drowing = false;
+                                    }
                                 }
                             }
                             else
                             {
-                                if (DrowCount == 2)
-                                {
-                                    // 次の書き順に進む
-                                    RootCount = 2;
-                                }
-                                else
-                                {
-                                    // 初期化
-                                    FirstTouch = false;
-                                    RootCount = 0;
-                                    Drowing = false;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Drowing = true;
-                            if (FirstTouch)
-                            {
-                                if (DrowCount == 4)
-                                {
-                                    TurnRight = true;
-                                    RootCount = 4;
-                                }
-                                if (DrowCount == 2)
-                                {
-                                    RootCount = 2;
-                                    TurnRight = false;
-                                }
-
                                 Drowing = true;
-                            }
-                        }
-                        break;
-                    case 4:
-                        // 3回目以降の判定を取る場合
-                        if (Drowing)
-                        {
-                            // 右回りの場合
-                            if (TurnRight)
-                            {
-                                if (DrowCount == 1)
+                                if (FirstTouch)
                                 {
-                                    // 次の書き順に進む
-                                    RootCount = 1;
+                                    if (DrowCount == 4)
+                                    {
+                                        TurnRight = true;
+                                        RootCount = 4;
+                                    }
+                                    if (DrowCount == 2)
+                                    {
+                                        RootCount = 2;
+                                        TurnRight = false;
+                                    }
+
+                                    Drowing = true;
+                                }
+                            }
+                            break;
+                        case 4:
+                            // 3回目以降の判定を取る場合
+                            if (Drowing)
+                            {
+                                // 右回りの場合
+                                if (TurnRight)
+                                {
+                                    if (DrowCount == 1)
+                                    {
+                                        // 次の書き順に進む
+                                        RootCount = 1;
+                                    }
+                                    else
+                                    {
+                                        // 初期化
+                                        FirstTouch = false;
+                                        RootCount = 0;
+                                        Drowing = false;
+                                    }
                                 }
                                 else
                                 {
-                                    // 初期化
-                                    FirstTouch = false;
-                                    RootCount = 0;
-                                    Drowing = false;
+                                    if (DrowCount == 3)
+                                    {
+                                        // 次の書き順に進む
+                                        RootCount = 3;
+                                    }
+                                    else
+                                    {
+                                        // 初期化
+                                        FirstTouch = false;
+                                        RootCount = 0;
+                                        Drowing = false;
+                                        StrokeOrder = 0;
+                                    }
                                 }
                             }
                             else
                             {
-                                if (DrowCount == 3)
-                                {
-                                    // 次の書き順に進む
-                                    RootCount = 3;
-                                }
-                                else
-                                {
-                                    // 初期化
-                                    FirstTouch = false;
-                                    RootCount = 0;
-                                    Drowing = false;
-                                    StrokeOrder = 0;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Drowing = true;
-                            if (FirstTouch)
-                            {
-                                if (DrowCount == 1)
-                                {
-                                    TurnRight = true;
-                                    RootCount = 1;
-                                }
-                                if (DrowCount == 3)
-                                {
-                                    RootCount = 3;
-                                    TurnRight = false;
-                                }
-
                                 Drowing = true;
+                                if (FirstTouch)
+                                {
+                                    if (DrowCount == 1)
+                                    {
+                                        TurnRight = true;
+                                        RootCount = 1;
+                                    }
+                                    if (DrowCount == 3)
+                                    {
+                                        RootCount = 3;
+                                        TurnRight = false;
+                                    }
+
+                                    Drowing = true;
+                                }
                             }
-                        }
-                        break;
-                        #endregion
-                }
-                break;
+                            break;
+                            #endregion
+                    }
+                    break;
+            }
+
+            fix = true;
         }
-
-
-
     }
+
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -353,6 +362,7 @@ public class DrawManeger : MonoBehaviour
                 // 全て書き切ったら
                 if (StrokeOrder >= 4)
                 {
+                    textMeshProUGUI.text = ("10Point Damege !!");
                     // ダメージを与える
                     BattleManeger.EnemyHP -= 10;
                     Debug.Log("Player Attack!");
@@ -388,5 +398,12 @@ public class DrawManeger : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        // 再度処理を行えるようにする
+        fix = false;
+        textMeshProUGUI.text = ("");
     }
 }
