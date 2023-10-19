@@ -9,6 +9,8 @@ TagManager:
   - Point
   - Square
   - Triangle
+  - Rhombus
+  - Star
   layers:
   - Default
   - TransparentFX
