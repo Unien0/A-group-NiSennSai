@@ -60,6 +60,12 @@ public class DrawManeger : MonoBehaviour
     [SerializeField] private GameObject Rhombus;
     [SerializeField] private GameObject Star;
 
+    //UIヒント
+    [SerializeField] private GameObject SquareHint;
+    [SerializeField] private GameObject TriangleHint;
+    [SerializeField] private GameObject RhombusHint;
+    [SerializeField] private GameObject StarHint;
+
     // TEST用変数
     [SerializeField] private TextMeshProUGUI textMeshProUGUI;
 
@@ -158,6 +164,11 @@ public class DrawManeger : MonoBehaviour
                     Triangle.SetActive(false);
                     Rhombus.SetActive(false);
                     Star.SetActive(false);
+
+                    SquareHint.SetActive(false);
+                    TriangleHint.SetActive(false);
+                    RhombusHint.SetActive(false);
+                    StarHint.SetActive(false);
                     break;
                 case DrowShape.Square:
                     // 四角形の表示
@@ -165,6 +176,11 @@ public class DrawManeger : MonoBehaviour
                     Triangle.SetActive(false);
                     Rhombus.SetActive(false);
                     Star.SetActive(false);
+
+                    SquareHint.SetActive(true);
+                    TriangleHint.SetActive(false);
+                    RhombusHint.SetActive(false);
+                    StarHint.SetActive(false);
 
                     // ルート処理
                     switch (RootCount)
@@ -409,6 +425,11 @@ public class DrawManeger : MonoBehaviour
                     Triangle.SetActive(true);
                     Rhombus.SetActive(false);
                     Star.SetActive(false);
+
+                    SquareHint.SetActive(false);
+                    TriangleHint.SetActive(true);
+                    RhombusHint.SetActive(false);
+                    StarHint.SetActive(false);
                     // ルート処理
                     switch (RootCount)
                     {
@@ -597,6 +618,11 @@ public class DrawManeger : MonoBehaviour
                     Triangle.SetActive(false);
                     Rhombus.SetActive(true);
                     Star.SetActive(false);
+
+                    SquareHint.SetActive(false);
+                    TriangleHint.SetActive(false);
+                    RhombusHint.SetActive(true);
+                    StarHint.SetActive(false);
                     // ルート処理
                     switch (RootCount)
                     {
@@ -840,6 +866,11 @@ public class DrawManeger : MonoBehaviour
                     Triangle.SetActive(false);
                     Rhombus.SetActive(false);
                     Star.SetActive(true);
+
+                    SquareHint.SetActive(false);
+                    TriangleHint.SetActive(false);
+                    RhombusHint.SetActive(false);
+                    StarHint.SetActive(true);
 
                     // ルート処理
                     switch (RootCount)
