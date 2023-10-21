@@ -59,6 +59,9 @@ public class BattleManeger : MonoBehaviour
     public Image playerHPBar;
     public Image enemyHPBar;
 
+    //ŽžŠÔŒn—ñ
+    public Image TimeCT;
+
     private void Awake()
     {
         //playerHPBar = GetComponent<Image>();
@@ -93,6 +96,9 @@ public class BattleManeger : MonoBehaviour
         //HPUI•Ï‰»
         playerHPBar.fillAmount = (float)PlayerHP / 100;
         enemyHPBar.fillAmount = (float)EnemyHP / 100;
+
+        //CTUI•Ï‰»
+        TimeCT.fillAmount = (float)ActionCD / 10;
     }
 
     void TimeControl()
