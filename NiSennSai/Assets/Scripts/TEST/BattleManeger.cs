@@ -15,7 +15,19 @@ public class BattleManeger : MonoBehaviour
 
     // ◆ Player系列
     // プレイヤーの体力
-    [SerializeField] private int PlayerHP;
+    public PlayerData_SO playerData;
+    public int maxHp
+    {
+        //PlayerのMaxHPをゲットする
+        get { if (playerData != null) return playerData.playerMaxHP; else return 0; }
+
+    }
+    public int PlayerHP
+    {
+        //PlayerのHPをゲットする
+        get { if (playerData != null) return playerData.playerHP; else return 0; }
+        set { playerData.playerHP = value; }
+    }
 
     // ◆ Enemy系列
     // 敵種類一覧
@@ -42,6 +54,17 @@ public class BattleManeger : MonoBehaviour
     // スタン状態を管理する変数
     private bool isStan;
 
+    //UIについて
+    //HPBar系列
+    public Image playerHPBar;
+    public Image enemyHPBar;
+
+    private void Awake()
+    {
+        //playerHPBar = GetComponent<Image>();
+        //enemyHPBar = gameObject.GetComponent<Image>();
+    }
+
     void Start()
     {
         // プレイヤーの体力初期値設定
@@ -66,6 +89,10 @@ public class BattleManeger : MonoBehaviour
         }
 
         PlayerControl();
+
+        //HPUI変化
+        playerHPBar.fillAmount = (float)PlayerHP / 100;
+        enemyHPBar.fillAmount = (float)EnemyHP / 100;
     }
 
     void TimeControl()

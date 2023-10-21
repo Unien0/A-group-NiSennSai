@@ -13,6 +13,7 @@ public class PlayerData_SO : ScriptableObject
     [Multiline] public string playerDescription;//プレイヤーキャラクターの紹介
     [Space(10)]
     [Header("基本データ")]
+    public int playerMaxHP;
     public int playerHP;
     public float playerSpeed;
 

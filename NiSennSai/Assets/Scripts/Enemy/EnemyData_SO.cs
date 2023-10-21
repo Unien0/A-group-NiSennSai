@@ -13,6 +13,7 @@ public class EnemyData_SO : ScriptableObject
     [Multiline] public string enemyDescription;//プレイヤーキャラクターの紹介
     [Space(10)]
     [Header("基本データ")]
+    public int enemyMaxHP;
     public int enemyHP;
     public float enemySpeed;
 }

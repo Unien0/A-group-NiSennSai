@@ -122,6 +122,26 @@ public class DrawManeger : MonoBehaviour
         gameObject.transform.position = screenToWorldPointPosition;
     }
 
+    public void SelectSquare()
+    {
+        SelectShape = DrowShape.Square;
+    }
+
+    public void SelectTriangle()
+    {
+        SelectShape = DrowShape.Triangle;
+    }
+
+    public void SelectRhombus()
+    {
+        SelectShape = DrowShape.Rhombus;
+    }
+
+    public void SelectStar()
+    {
+        SelectShape = DrowShape.Star;
+    }
+
     void ShapeChange()
     {
 

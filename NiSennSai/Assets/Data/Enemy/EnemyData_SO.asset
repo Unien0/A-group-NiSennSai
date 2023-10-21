@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e044101bc48fdf04cb537e21a0dcf4e5, type: 3}
-  m_Name: PlayerData_SO
+  m_Script: {fileID: 11500000, guid: 6545813078851ec49912e8885f5bfe3e, type: 3}
+  m_Name: EnemyData_SO
   m_EditorClassIdentifier: 
-  playerName: 
-  playerIcon: {fileID: 0}
-  playerOnWorldSprite: {fileID: 0}
-  playerDescription: 
-  playerMaxHP: 100
-  playerHP: 95
-  playerSpeed: 5
+  enemyName: 
+  enemyIcon: {fileID: 0}
+  enemyOnWorldSprite: {fileID: 0}
+  enemyDescription: 
+  enemyMaxHP: 100
+  enemyHP: 100
+  enemySpeed: 0
