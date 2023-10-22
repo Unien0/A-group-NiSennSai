@@ -44,7 +44,8 @@ public class BattleManeger : MonoBehaviour
     // 敵の種類名の取得用変数
     [SerializeField]private EnemyName EnemyType;
     // 敵の体力
-    public static int EnemyHP;
+    public static int EnemyHP;    
+    private int EnemyMAXHP;
     // 行動待機時間
     [SerializeField] private float ActionCD;
     // 行動内容
@@ -53,6 +54,7 @@ public class BattleManeger : MonoBehaviour
     private bool isAction = false;
     // スタン状態を管理する変数
     private bool isStan;
+    private float isStanTime;
 
     //UIについて
     //HPBar系列
@@ -77,6 +79,7 @@ public class BattleManeger : MonoBehaviour
         {
             case EnemyName.Golem:
                 EnemyHP = 100;
+                EnemyMAXHP = EnemyHP;
                 break;
         }
     }
@@ -89,6 +92,22 @@ public class BattleManeger : MonoBehaviour
         {
             TimeControl();
             EnemyControl();
+
+            if ((EnemyMAXHP - EnemyHP) > 30)
+            {
+                isStan = true;
+                EnemyMAXHP = EnemyHP;
+                isStanTime = 0;
+            }
+        }
+        else
+        {
+            if (isStanTime > 5)
+            {
+                isStan = false;
+            }
+            isStanTime += Time.deltaTime;
+            FindObjectOfType<DrawManeger>().DrowCountRemaining = 15;
         }
 
         PlayerControl();

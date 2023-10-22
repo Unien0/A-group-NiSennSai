@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 113138068}
   - component: {fileID: 113138067}
   m_Layer: 0
-  m_Name: 5
+  m_Name: 4
   m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -307,7 +307,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1305542181}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &113138067
 Rigidbody2D:
@@ -1733,7 +1733,7 @@ GameObject:
   - component: {fileID: 513811880}
   - component: {fileID: 513811879}
   m_Layer: 0
-  m_Name: 2
+  m_Name: 3
   m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1752,7 +1752,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1305542181}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &513811879
 Rigidbody2D:
@@ -2333,7 +2333,7 @@ GameObject:
   - component: {fileID: 567957846}
   - component: {fileID: 567957845}
   m_Layer: 0
-  m_Name: 3
+  m_Name: 5
   m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2352,7 +2352,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1305542181}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &567957845
 Rigidbody2D:
@@ -4553,10 +4553,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1789297970}
-  - {fileID: 513811878}
-  - {fileID: 567957844}
   - {fileID: 1813186133}
+  - {fileID: 513811878}
   - {fileID: 113138066}
+  - {fileID: 567957844}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5455,8 +5455,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TrailObj: {fileID: 1986039898}
-  SelectShape: 1
+  SelectShape: 2
   TurnRight: 0
+  TurnCheck: 0
   RootCount: 0
   DrowCount: 15
   Drowing: 0
@@ -6481,7 +6482,7 @@ GameObject:
   - component: {fileID: 1813186135}
   - component: {fileID: 1813186134}
   m_Layer: 0
-  m_Name: 4
+  m_Name: 2
   m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6500,7 +6501,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1305542181}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1813186134
 Rigidbody2D:

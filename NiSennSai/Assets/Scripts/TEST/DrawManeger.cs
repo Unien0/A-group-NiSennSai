@@ -39,6 +39,7 @@ public class DrawManeger : MonoBehaviour
 
     // èëÇ´èáï€ë∂(true = âEâÒÇË)
     [SerializeField] private bool TurnRight;
+    [SerializeField] private bool TurnCheck;
 
     // ÉãÅ[Égï€ë∂ópïœêî
     [SerializeField] private int RootCount;
@@ -50,14 +51,18 @@ public class DrawManeger : MonoBehaviour
     // ê≥ÇµÇ≠êGÇÍÇΩâÒêî
     [SerializeField] private int StrokeOrder;
     // èëÇØÇÈâÒêî
-    [SerializeField] private int DrowCountRemaining;
+    public int DrowCountRemaining;
+    // âÒïúÇ‹Ç≈ÇÃéûä‘
     [SerializeField] private float DrowCountFixing;
 
     // Åü ShapeånóÒ
     // éläpå`
     [SerializeField] private GameObject Square;
+    // éOäpå`
     [SerializeField] private GameObject Triangle;
+    // Ç–Çµå`
     [SerializeField] private GameObject Rhombus;
+    // êØå^
     [SerializeField] private GameObject Star;
 
     //UIÉqÉìÉg
@@ -98,12 +103,26 @@ public class DrawManeger : MonoBehaviour
             }
             else
             {
+                // èâä˙âªÇ∑ÇÈ
+                TurnCheck = false;
+                FirstTouch = false;
+                RootCount = 0;
+                Drowing = false;
+                StrokeOrder = 0;
+
                 TrailObj.SetActive(false);
             }
             if (DrowCountFixing > 2)
             {
+                if (!(DrowCountRemaining >= 15))
+                {
+                    DrowCountRemaining += 1;
+                }
+                else
+                {
+                    DrowCountFixing = 15;
+                }
                 DrowCountFixing = 0;
-                DrowCountRemaining += 1;
             }
         }
         else
@@ -226,21 +245,25 @@ public class DrawManeger : MonoBehaviour
                             }
                             else
                             {
-                                Drowing = true;
                                 if (FirstTouch)
                                 {
                                     if (DrowCount == 2)
                                     {
                                         TurnRight = true;
                                         RootCount = 2;
+                                        TurnCheck = true;
                                     }
                                     if (DrowCount == 4)
                                     {
                                         RootCount = 4;
                                         TurnRight = false;
+                                        TurnCheck = true;
+                                    }
+                                    if (TurnCheck)
+                                    {
+                                        Drowing = true;
                                     }
 
-                                    Drowing = true;
                                 }
                             }
                             break;
@@ -284,11 +307,11 @@ public class DrawManeger : MonoBehaviour
                             }
                             else
                             {
-                                Drowing = true;
                                 if (FirstTouch)
                                 {
                                     if (DrowCount == 3)
                                     {
+                                        TurnCheck = true;
                                         TurnRight = true;
                                         RootCount = 3;
                                     }
@@ -296,9 +319,12 @@ public class DrawManeger : MonoBehaviour
                                     {
                                         RootCount = 1;
                                         TurnRight = false;
+                                        TurnCheck = true;
                                     }
-
-                                    Drowing = true;
+                                    if (TurnCheck)
+                                    {
+                                        Drowing = true;
+                                    }
                                 }
                             }
                             break;
@@ -341,21 +367,25 @@ public class DrawManeger : MonoBehaviour
                             }
                             else
                             {
-                                Drowing = true;
                                 if (FirstTouch)
                                 {
                                     if (DrowCount == 4)
                                     {
                                         TurnRight = true;
                                         RootCount = 4;
+                                        TurnCheck = true;
                                     }
                                     if (DrowCount == 2)
                                     {
                                         RootCount = 2;
                                         TurnRight = false;
+                                        TurnCheck = true;
                                     }
 
-                                    Drowing = true;
+                                    if (TurnCheck)
+                                    {
+                                        Drowing = true;
+                                    }
                                 }
                             }
                             break;
@@ -398,11 +428,11 @@ public class DrawManeger : MonoBehaviour
                             }
                             else
                             {
-                                Drowing = true;
                                 if (FirstTouch)
                                 {
                                     if (DrowCount == 1)
                                     {
+                                        TurnCheck = true;
                                         TurnRight = true;
                                         RootCount = 1;
                                     }
@@ -410,9 +440,13 @@ public class DrawManeger : MonoBehaviour
                                     {
                                         RootCount = 3;
                                         TurnRight = false;
+                                        TurnCheck = true;
                                     }
 
-                                    Drowing = true;
+                                    if (TurnCheck)
+                                    {
+                                        Drowing = true;
+                                    }
                                 }
                             }
                             break;
@@ -474,21 +508,25 @@ public class DrawManeger : MonoBehaviour
                             }
                             else
                             {
-                                Drowing = true;
                                 if (FirstTouch)
                                 {
                                     if (DrowCount == 2)
                                     {
+                                        TurnCheck = true;
                                         TurnRight = true;
                                         RootCount = 2;
                                     }
                                     if (DrowCount == 3)
                                     {
+                                        TurnCheck = true;
                                         RootCount = 3;
                                         TurnRight = false;
                                     }
 
-                                    Drowing = true;
+                                    if (TurnCheck)
+                                    {
+                                        Drowing = true;
+                                    }
                                 }
                             }
                             break;
@@ -532,21 +570,24 @@ public class DrawManeger : MonoBehaviour
                             }
                             else
                             {
-                                Drowing = true;
                                 if (FirstTouch)
                                 {
                                     if (DrowCount == 3)
                                     {
+                                        TurnCheck = true;
                                         TurnRight = true;
                                         RootCount = 3;
                                     }
                                     if (DrowCount == 1)
                                     {
+                                        TurnCheck = true;
                                         RootCount = 1;
                                         TurnRight = false;
                                     }
-
-                                    Drowing = true;
+                                    if (TurnCheck)
+                                    {
+                                        Drowing = true;
+                                    }
                                 }
                             }
                             break;
@@ -589,21 +630,24 @@ public class DrawManeger : MonoBehaviour
                             }
                             else
                             {
-                                Drowing = true;
                                 if (FirstTouch)
                                 {
                                     if (DrowCount == 1)
                                     {
+                                        TurnCheck = true;
                                         TurnRight = true;
                                         RootCount = 4;
                                     }
                                     if (DrowCount == 1)
                                     {
+                                        TurnCheck = true;
                                         RootCount = 2;
                                         TurnRight = false;
                                     }
-
-                                    Drowing = true;
+                                    if (TurnCheck)
+                                    {
+                                        Drowing = true;
+                                    }
                                 }
                             }
                             break;
@@ -667,21 +711,25 @@ public class DrawManeger : MonoBehaviour
                             }
                             else
                             {
-                                Drowing = true;
                                 if (FirstTouch)
                                 {
                                     if (DrowCount == 2)
                                     {
+                                        TurnCheck = true;
                                         TurnRight = true;
                                         RootCount = 2;
                                     }
                                     if (DrowCount == 4)
                                     {
+                                        TurnCheck = true;
                                         RootCount = 4;
                                         TurnRight = false;
                                     }
 
-                                    Drowing = true;
+                                    if (TurnCheck)
+                                    {
+                                        Drowing = true;
+                                    }
                                 }
                             }
                             break;
@@ -725,21 +773,24 @@ public class DrawManeger : MonoBehaviour
                             }
                             else
                             {
-                                Drowing = true;
                                 if (FirstTouch)
                                 {
                                     if (DrowCount == 3)
                                     {
+                                        TurnCheck = true;
                                         TurnRight = true;
                                         RootCount = 3;
                                     }
                                     if (DrowCount == 1)
                                     {
+                                        TurnCheck = true;
                                         RootCount = 1;
                                         TurnRight = false;
                                     }
-
-                                    Drowing = true;
+                                    if (TurnCheck)
+                                    {
+                                        Drowing = true;
+                                    }
                                 }
                             }
                             break;
@@ -782,21 +833,24 @@ public class DrawManeger : MonoBehaviour
                             }
                             else
                             {
-                                Drowing = true;
                                 if (FirstTouch)
                                 {
                                     if (DrowCount == 4)
                                     {
+                                        TurnCheck = true;
                                         TurnRight = true;
                                         RootCount = 4;
                                     }
                                     if (DrowCount == 2)
                                     {
+                                        TurnCheck = true;
                                         RootCount = 2;
                                         TurnRight = false;
                                     }
-
-                                    Drowing = true;
+                                    if (TurnCheck)
+                                    {
+                                        Drowing = true;
+                                    }
                                 }
                             }
                             break;
@@ -839,21 +893,25 @@ public class DrawManeger : MonoBehaviour
                             }
                             else
                             {
-                                Drowing = true;
                                 if (FirstTouch)
                                 {
                                     if (DrowCount == 1)
                                     {
+                                        TurnCheck = true;
                                         TurnRight = true;
                                         RootCount = 1;
                                     }
                                     if (DrowCount == 3)
                                     {
+                                        TurnCheck = true;
                                         RootCount = 3;
                                         TurnRight = false;
                                     }
 
-                                    Drowing = true;
+                                    if (TurnCheck)
+                                    {
+                                        Drowing = true;
+                                    }
                                 }
                             }
                             break;
@@ -916,21 +974,25 @@ public class DrawManeger : MonoBehaviour
                             }
                             else
                             {
-                                Drowing = true;
                                 if (FirstTouch)
                                 {
                                     if (DrowCount == 2)
                                     {
+                                        TurnCheck = true;
                                         TurnRight = true;
                                         RootCount = 2;
                                     }
                                     if (DrowCount == 5)
                                     {
+                                        TurnCheck = true;
                                         RootCount = 5;
                                         TurnRight = false;
                                     }
 
-                                    Drowing = true;
+                                    if (TurnCheck)
+                                    {
+                                        Drowing = true;
+                                    }
                                 }
                             }
                             break;
@@ -974,21 +1036,25 @@ public class DrawManeger : MonoBehaviour
                             }
                             else
                             {
-                                Drowing = true;
                                 if (FirstTouch)
                                 {
                                     if (DrowCount == 3)
                                     {
+                                        TurnCheck = true;
                                         TurnRight = true;
                                         RootCount = 3;
                                     }
                                     if (DrowCount == 1)
                                     {
+                                        TurnCheck = true;
                                         RootCount = 1;
                                         TurnRight = false;
                                     }
 
-                                    Drowing = true;
+                                    if (TurnCheck)
+                                    {
+                                        Drowing = true;
+                                    }
                                 }
                             }
                             break;
@@ -1031,21 +1097,25 @@ public class DrawManeger : MonoBehaviour
                             }
                             else
                             {
-                                Drowing = true;
                                 if (FirstTouch)
                                 {
                                     if (DrowCount == 4)
                                     {
+                                        TurnCheck = true;
                                         TurnRight = true;
                                         RootCount = 4;
                                     }
                                     if (DrowCount == 2)
                                     {
+                                        TurnCheck = true;
                                         RootCount = 2;
                                         TurnRight = false;
                                     }
 
-                                    Drowing = true;
+                                    if (TurnCheck)
+                                    {
+                                        Drowing = true;
+                                    }
                                 }
                             }
                             break;
@@ -1088,21 +1158,25 @@ public class DrawManeger : MonoBehaviour
                             }
                             else
                             {
-                                Drowing = true;
                                 if (FirstTouch)
                                 {
                                     if (DrowCount == 5)
                                     {
+                                        TurnCheck = true;
                                         TurnRight = true;
                                         RootCount = 5;
                                     }
                                     if (DrowCount == 3)
                                     {
+                                        TurnCheck = true;
                                         RootCount = 3;
                                         TurnRight = false;
                                     }
 
-                                    Drowing = true;
+                                    if (TurnCheck)
+                                    {
+                                        Drowing = true;
+                                    }
                                 }
                             }
                             break;
@@ -1145,21 +1219,24 @@ public class DrawManeger : MonoBehaviour
                             }
                             else
                             {
-                                Drowing = true;
                                 if (FirstTouch)
                                 {
                                     if (DrowCount == 1)
                                     {
+                                        TurnCheck = true;
                                         TurnRight = true;
                                         RootCount = 1;
                                     }
                                     if (DrowCount == 4)
                                     {
+                                        TurnCheck = true;
                                         RootCount = 4;
                                         TurnRight = false;
                                     }
-
-                                    Drowing = true;
+                                    if (TurnCheck)
+                                    {
+                                        Drowing = true;
+                                    }
                                 }
                             }
                             break;
@@ -1189,6 +1266,7 @@ public class DrawManeger : MonoBehaviour
                     Debug.Log("Player Attack!");
                     Debug.Log("10Point Damege !!");
                     // èâä˙âªÇ∑ÇÈ
+                    TurnCheck = false;
                     FirstTouch = false;
                     RootCount = 0;
                     Drowing = false;
@@ -1230,6 +1308,7 @@ public class DrawManeger : MonoBehaviour
                     Debug.Log("Player Attack!");
                     Debug.Log("8Point Damege !!");
                     // èâä˙âªÇ∑ÇÈ
+                    TurnCheck = false;
                     FirstTouch = false;
                     RootCount = 0;
                     Drowing = false;
@@ -1267,6 +1346,7 @@ public class DrawManeger : MonoBehaviour
                     Debug.Log("Player Attack!");
                     Debug.Log("12Point Damege !!");
                     // èâä˙âªÇ∑ÇÈ
+                    TurnCheck = false;
                     FirstTouch = false;
                     RootCount = 0;
                     Drowing = false;
@@ -1308,6 +1388,7 @@ public class DrawManeger : MonoBehaviour
                     Debug.Log("Player Attack!");
                     Debug.Log("25Point Damege !!");
                     // èâä˙âªÇ∑ÇÈ
+                    TurnCheck = false;
                     FirstTouch = false;
                     RootCount = 0;
                     Drowing = false;
