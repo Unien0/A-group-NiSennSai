@@ -6,6 +6,8 @@ using TMPro;
 
 public class DrawManeger : MonoBehaviour
 {
+    public CameraShake shake;
+
     // =================================
     // マウスカーソルの移動に応じて、オブジェクトを移動させるスクリプト
     // =================================
@@ -1260,6 +1262,7 @@ public class DrawManeger : MonoBehaviour
                 // 全て書き切ったら
                 if (StrokeOrder > 4)
                 {
+                    shake.Shake(0.25f, 0.1f);
                     textMeshProUGUI.text = ("10Point Damege !!");
                     // ダメージを与える
                     BattleManeger.EnemyHP -= 10;
@@ -1303,6 +1306,7 @@ public class DrawManeger : MonoBehaviour
                 // 全て書き切ったら
                 if (StrokeOrder > 3)
                 {
+                    shake.Shake(0.25f, 0.1f);
                     textMeshProUGUI.text = ("8Point Damege !!");
                     // ダメージを与える
                     BattleManeger.EnemyHP -= 8;
@@ -1342,6 +1346,7 @@ public class DrawManeger : MonoBehaviour
                 // 全て書き切ったら
                 if (StrokeOrder > 4)
                 {
+                    shake.Shake(0.25f, 0.1f);
                     textMeshProUGUI.text = ("12Point Damege !!");
                     // ダメージを与える
                     BattleManeger.EnemyHP -= 12;
@@ -1385,6 +1390,7 @@ public class DrawManeger : MonoBehaviour
                 // 全て書き切ったら
                 if (StrokeOrder > 5)
                 {
+                    shake.Shake(0.25f, 0.1f);
                     textMeshProUGUI.text = ("25Point Damege !!");
                     // ダメージを与える
                     BattleManeger.EnemyHP -= 25;

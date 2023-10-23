@@ -30,7 +30,8 @@ public class BattleManeger : MonoBehaviour
     }
 
     // ◆ Enemy系列
-    // 敵種類一覧
+    // 敵オブジェクト
+    [SerializeField] private GameObject EnemyObj;
 
     // TEST用変数
     [SerializeField] private TextMeshProUGUI textMeshProUGUI;
@@ -162,7 +163,7 @@ public class BattleManeger : MonoBehaviour
                                 PlayerHP = PlayerHP - 10;
                                 EventHandler.CallPlaySoundEvent(SoundName.EnemyAttack1);
                                 // 演出関係の処理を入れる
-
+                                EnemyObj.GetComponent<Animator>().SetBool("ACT1", true);
                                 break;
                             // 強攻撃処理
                             case 2:
@@ -170,14 +171,14 @@ public class BattleManeger : MonoBehaviour
                                 PlayerHP = PlayerHP - 25;
                                 EventHandler.CallPlaySoundEvent(SoundName.EnemyAttack2);
                                 // 演出関係の処理を入れる
-
+                                EnemyObj.GetComponent<Animator>().SetBool("ACT2", true);
                                 break;
                             case 3:
                                 // ダメージ処理
                                 PlayerHP = PlayerHP - 5;
                                 EventHandler.CallPlaySoundEvent(SoundName.EnemyAttack3);
                                 // 演出関係の処理を入れる
-
+                                EnemyObj.GetComponent<Animator>().SetBool("ACT1", true);
                                 break;
                         }
                         Debug.Log("EnemyAttack!! No." + ActionType);
@@ -193,6 +194,8 @@ public class BattleManeger : MonoBehaviour
             { 
                 // 行動時間のリセット
                 ActionCD = 0;
+                EnemyObj.GetComponent<Animator>().SetBool("ACT1", false);
+                EnemyObj.GetComponent<Animator>().SetBool("ACT2", false);
             }
         }
         else if (ActionCD >= 3)
