@@ -60,12 +60,16 @@ public class DrawManeger : MonoBehaviour
     // Åü ShapeånóÒ
     // éläpå`
     [SerializeField] private GameObject Square;
+    [SerializeField] private GameObject Square_Efect;
     // éOäpå`
     [SerializeField] private GameObject Triangle;
+    [SerializeField] private GameObject Triangle_Efect;
     // Ç–Çµå`
     [SerializeField] private GameObject Rhombus;
+    [SerializeField] private GameObject Rhombus_Efect;
     // êØå^
     [SerializeField] private GameObject Star;
+    [SerializeField] private GameObject Star_Efect;
 
     //UIÉqÉìÉg
     [SerializeField] private GameObject SquareHint;

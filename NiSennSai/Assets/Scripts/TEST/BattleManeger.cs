@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BattleManeger : MonoBehaviour
 {
+    public CameraShake shake;
+
     // 変数宣言
     // ◆ Maneger系列
     // 経過時間
@@ -129,6 +132,11 @@ public class BattleManeger : MonoBehaviour
         {
             // ゲームオーバー処理
         }
+
+        if (EnemyHP <= 0)
+        {
+            SceneManager.LoadScene("Clear");
+        }
     }
 
     void PlayerControl()
@@ -159,26 +167,48 @@ public class BattleManeger : MonoBehaviour
                         {
                             // 攻撃処理
                             case 1:
-                                // ダメージ処理
-                                PlayerHP = PlayerHP - 10;
+                                if (ActionCD >= 11)
+                                {
+                                    shake.Shake(0.25f, 0.1f);
+                                    // ダメージ処理
+                                    PlayerHP = PlayerHP - 10;
+                                    // セーフティをオンにする
+                                    isAction = true;
+                                }
+
                                 EventHandler.CallPlaySoundEvent(SoundName.EnemyAttack1);
                                 // 演出関係の処理を入れる
                                 EnemyObj.GetComponent<Animator>().SetBool("ACT1", true);
+                                Debug.Log("ACT1");
                                 break;
                             // 強攻撃処理
                             case 2:
-                                // ダメージ処理
-                                PlayerHP = PlayerHP - 25;
+                                if (ActionCD >= 11)
+                                {
+                                    shake.Shake(0.25f, 0.1f);
+                                    // ダメージ処理
+                                    PlayerHP = PlayerHP - 20;
+                                    // セーフティをオンにする
+                                    isAction = true;
+                                }
                                 EventHandler.CallPlaySoundEvent(SoundName.EnemyAttack2);
                                 // 演出関係の処理を入れる
                                 EnemyObj.GetComponent<Animator>().SetBool("ACT2", true);
+                                Debug.Log("ACT2");
                                 break;
                             case 3:
-                                // ダメージ処理
-                                PlayerHP = PlayerHP - 5;
+                                if (ActionCD >= 11)
+                                {
+                                    shake.Shake(0.25f, 0.1f);
+                                    // ダメージ処理
+                                    PlayerHP = PlayerHP - 5;
+                                    // セーフティをオンにする
+                                    isAction = true;
+                                }
                                 EventHandler.CallPlaySoundEvent(SoundName.EnemyAttack3);
                                 // 演出関係の処理を入れる
                                 EnemyObj.GetComponent<Animator>().SetBool("ACT1", true);
+                                Debug.Log("ACT1_A");
                                 break;
                         }
                         Debug.Log("EnemyAttack!! No." + ActionType);
@@ -186,9 +216,6 @@ public class BattleManeger : MonoBehaviour
                         textMeshProUGUI.text = ("EnemyAttack!! PlayerHp => " + PlayerHP);
                         break;
                 }
-                // セーフティをオンにする
-                isAction = true;
-
             }
             else
             { 
