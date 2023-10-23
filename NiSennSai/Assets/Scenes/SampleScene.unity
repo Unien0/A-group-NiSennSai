@@ -5546,7 +5546,7 @@ MonoBehaviour:
   Rhombus: {fileID: 1193271231}
   Rhombus_Efect: {fileID: 0}
   Star: {fileID: 1305542180}
-  Star_Efect: {fileID: 0}
+  Star_Efect: {fileID: 982351492999043408, guid: f24a85e7da67780468c10f23e2b55a20, type: 3}
   SquareHint: {fileID: 350197195}
   TriangleHint: {fileID: 841154474}
   RhombusHint: {fileID: 886210660}

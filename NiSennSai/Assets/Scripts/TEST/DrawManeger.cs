@@ -1266,6 +1266,7 @@ public class DrawManeger : MonoBehaviour
                 // 全て書き切ったら
                 if (StrokeOrder > 4)
                 {
+                    Instantiate(Square_Efect);
                     shake.Shake(0.25f, 0.1f);
                     textMeshProUGUI.text = ("10Point Damege !!");
                     // ダメージを与える
@@ -1310,6 +1311,7 @@ public class DrawManeger : MonoBehaviour
                 // 全て書き切ったら
                 if (StrokeOrder > 3)
                 {
+                    Instantiate(Triangle_Efect);
                     shake.Shake(0.25f, 0.1f);
                     textMeshProUGUI.text = ("8Point Damege !!");
                     // ダメージを与える
@@ -1350,6 +1352,7 @@ public class DrawManeger : MonoBehaviour
                 // 全て書き切ったら
                 if (StrokeOrder > 4)
                 {
+                    Instantiate(Rhombus_Efect);
                     shake.Shake(0.25f, 0.1f);
                     textMeshProUGUI.text = ("12Point Damege !!");
                     // ダメージを与える
@@ -1394,6 +1397,7 @@ public class DrawManeger : MonoBehaviour
                 // 全て書き切ったら
                 if (StrokeOrder > 5)
                 {
+                    Instantiate(Star_Efect);
                     shake.Shake(0.25f, 0.1f);
                     textMeshProUGUI.text = ("25Point Damege !!");
                     // ダメージを与える
