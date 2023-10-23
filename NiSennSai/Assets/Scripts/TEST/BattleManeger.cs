@@ -160,6 +160,7 @@ public class BattleManeger : MonoBehaviour
                             case 1:
                                 // ダメージ処理
                                 PlayerHP = PlayerHP - 10;
+                                EventHandler.CallPlaySoundEvent(SoundName.EnemyAttack1);
                                 // 演出関係の処理を入れる
 
                                 break;
@@ -167,12 +168,14 @@ public class BattleManeger : MonoBehaviour
                             case 2:
                                 // ダメージ処理
                                 PlayerHP = PlayerHP - 25;
+                                EventHandler.CallPlaySoundEvent(SoundName.EnemyAttack2);
                                 // 演出関係の処理を入れる
 
                                 break;
                             case 3:
                                 // ダメージ処理
                                 PlayerHP = PlayerHP - 5;
+                                EventHandler.CallPlaySoundEvent(SoundName.EnemyAttack3);
                                 // 演出関係の処理を入れる
 
                                 break;

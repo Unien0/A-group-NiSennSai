@@ -1263,6 +1263,7 @@ public class DrawManeger : MonoBehaviour
                     textMeshProUGUI.text = ("10Point Damege !!");
                     // ダメージを与える
                     BattleManeger.EnemyHP -= 10;
+                    EventHandler.CallPlaySoundEvent(SoundName.Square);
                     Debug.Log("Player Attack!");
                     Debug.Log("10Point Damege !!");
                     // 初期化する
@@ -1305,6 +1306,7 @@ public class DrawManeger : MonoBehaviour
                     textMeshProUGUI.text = ("8Point Damege !!");
                     // ダメージを与える
                     BattleManeger.EnemyHP -= 8;
+                    EventHandler.CallPlaySoundEvent(SoundName.Triangle);
                     Debug.Log("Player Attack!");
                     Debug.Log("8Point Damege !!");
                     // 初期化する
@@ -1343,6 +1345,7 @@ public class DrawManeger : MonoBehaviour
                     textMeshProUGUI.text = ("12Point Damege !!");
                     // ダメージを与える
                     BattleManeger.EnemyHP -= 12;
+                    EventHandler.CallPlaySoundEvent(SoundName.Rhombus);
                     Debug.Log("Player Attack!");
                     Debug.Log("12Point Damege !!");
                     // 初期化する
@@ -1385,6 +1388,7 @@ public class DrawManeger : MonoBehaviour
                     textMeshProUGUI.text = ("25Point Damege !!");
                     // ダメージを与える
                     BattleManeger.EnemyHP -= 25;
+                    EventHandler.CallPlaySoundEvent(SoundName.Star);
                     Debug.Log("Player Attack!");
                     Debug.Log("25Point Damege !!");
                     // 初期化する

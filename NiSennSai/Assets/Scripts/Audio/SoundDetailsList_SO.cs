@@ -34,6 +34,8 @@ public enum SoundName
     //チョップ，しゃげき
     MusicCalm,
     //BGM1
-
-    //环境音
+    Square, Triangle, Rhombus, Star,
+    //魔法SE
+    EnemyAttack1, EnemyAttack2, EnemyAttack3,
+    //敵の行動
 }
