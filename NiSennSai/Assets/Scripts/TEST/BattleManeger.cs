@@ -68,6 +68,10 @@ public class BattleManeger : MonoBehaviour
     //ŽžŠÔŒn—ñ
     public Image TimeCT;
 
+    //EnemyDie
+    public GameObject EnemyExplosionEffect;
+    //public GameObject diamond;
+
     private void Awake()
     {
         //playerHPBar = GetComponent<Image>();
@@ -135,7 +139,8 @@ public class BattleManeger : MonoBehaviour
 
         if (EnemyHP <= 0)
         {
-            SceneManager.LoadScene("Clear");
+            EnemyExplosionEffect.SetActive(true);
+            //SceneManager.LoadScene("Clear");
         }
     }
 
@@ -234,4 +239,6 @@ public class BattleManeger : MonoBehaviour
             isAction = false;
         }
     }
+
+
 }

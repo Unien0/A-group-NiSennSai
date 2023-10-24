@@ -16,4 +16,9 @@ public class SceneCollider : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void ClearSceneChange()
+    {
+        SceneManager.LoadScene("Clear");
+    }
 }
