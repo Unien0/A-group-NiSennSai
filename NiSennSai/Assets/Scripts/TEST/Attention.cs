@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Attention : MonoBehaviour
 {
     private float InputTime;
+    [SerializeField] private int LodeInt;
     void Start()
     {
         
@@ -21,7 +22,7 @@ public class Attention : MonoBehaviour
 
         if(InputTime > 2)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(LodeInt);
         }
     } 
 }

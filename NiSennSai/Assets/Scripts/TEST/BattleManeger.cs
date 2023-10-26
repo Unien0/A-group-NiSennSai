@@ -36,8 +36,6 @@ public class BattleManeger : MonoBehaviour
     // 敵オブジェクト
     [SerializeField] private GameObject EnemyObj;
 
-    // TEST用変数
-    [SerializeField] private TextMeshProUGUI textMeshProUGUI;
     public enum EnemyName
     {
         NoName,
@@ -218,7 +216,6 @@ public class BattleManeger : MonoBehaviour
                         }
                         Debug.Log("EnemyAttack!! No." + ActionType);
                         Debug.Log("PlayerHp =>" + PlayerHP);
-                        textMeshProUGUI.text = ("EnemyAttack!! PlayerHp => " + PlayerHP);
                         break;
                 }
             }
@@ -229,10 +226,6 @@ public class BattleManeger : MonoBehaviour
                 EnemyObj.GetComponent<Animator>().SetBool("ACT1", false);
                 EnemyObj.GetComponent<Animator>().SetBool("ACT2", false);
             }
-        }
-        else if (ActionCD >= 3)
-        {
-                textMeshProUGUI.text = ("");
         }
         else
         {

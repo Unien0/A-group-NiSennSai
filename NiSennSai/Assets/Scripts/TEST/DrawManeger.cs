@@ -77,9 +77,6 @@ public class DrawManeger : MonoBehaviour
     [SerializeField] private GameObject RhombusHint;
     [SerializeField] private GameObject StarHint;
 
-    // TEST用変数
-    [SerializeField] private TextMeshProUGUI textMeshProUGUI;
-
     void Start()
     {
         col2D = GetComponent<Collider2D>();
@@ -1268,7 +1265,6 @@ public class DrawManeger : MonoBehaviour
                 {
                     Instantiate(Square_Efect);
                     shake.Shake(0.25f, 0.1f);
-                    textMeshProUGUI.text = ("10Point Damege !!");
                     // ダメージを与える
                     BattleManeger.EnemyHP -= 10;
                     EventHandler.CallPlaySoundEvent(SoundName.Square);
@@ -1313,7 +1309,6 @@ public class DrawManeger : MonoBehaviour
                 {
                     Instantiate(Triangle_Efect);
                     shake.Shake(0.25f, 0.1f);
-                    textMeshProUGUI.text = ("8Point Damege !!");
                     // ダメージを与える
                     BattleManeger.EnemyHP -= 8;
                     EventHandler.CallPlaySoundEvent(SoundName.Triangle);
@@ -1354,7 +1349,6 @@ public class DrawManeger : MonoBehaviour
                 {
                     Instantiate(Rhombus_Efect);
                     shake.Shake(0.25f, 0.1f);
-                    textMeshProUGUI.text = ("12Point Damege !!");
                     // ダメージを与える
                     BattleManeger.EnemyHP -= 12;
                     EventHandler.CallPlaySoundEvent(SoundName.Rhombus);
@@ -1399,7 +1393,6 @@ public class DrawManeger : MonoBehaviour
                 {
                     Instantiate(Star_Efect);
                     shake.Shake(0.25f, 0.1f);
-                    textMeshProUGUI.text = ("25Point Damege !!");
                     // ダメージを与える
                     BattleManeger.EnemyHP -= 25;
                     EventHandler.CallPlaySoundEvent(SoundName.Star);
@@ -1446,6 +1439,5 @@ public class DrawManeger : MonoBehaviour
     {
         // 再度処理を行えるようにする
         fix = false;
-        textMeshProUGUI.text = ("");
     }
 }
