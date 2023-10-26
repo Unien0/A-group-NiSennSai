@@ -5736,7 +5736,7 @@ MonoBehaviour:
   TurnRight: 0
   TurnCheck: 0
   RootCount: 0
-  DrowCount: 15
+  DrowCount: 8
   Drowing: 0
   StrokeOrder: 0
   DrowCountRemaining: 15

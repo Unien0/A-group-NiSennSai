@@ -117,7 +117,7 @@ public class DrawManeger : MonoBehaviour
             }
             if (DrowCountFixing > 2)
             {
-                if (!(DrowCountRemaining >= 15))
+                if (!(DrowCountRemaining >= 8))
                 {
                     DrowCountRemaining += 1;
                 }
