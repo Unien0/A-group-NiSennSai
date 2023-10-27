@@ -77,6 +77,20 @@ public class DrawManeger : MonoBehaviour
     [SerializeField] private GameObject RhombusHint;
     [SerializeField] private GameObject StarHint;
 
+    public PlayerData_SO playerData;
+    public int maxHp
+    {
+        //PlayerのMaxHPをゲットする
+        get { if (playerData != null) return playerData.playerMaxHP; else return 0; }
+
+    }
+    public int PlayerHP
+    {
+        //PlayerのHPをゲットする
+        get { if (playerData != null) return playerData.playerHP; else return 0; }
+        set { playerData.playerHP = value; }
+    }
+
     void Start()
     {
         col2D = GetComponent<Collider2D>();
@@ -1355,7 +1369,8 @@ public class DrawManeger : MonoBehaviour
                     Instantiate(Rhombus_Efect);
                     shake.Shake(0.25f, 0.1f);
                     // ダメージを与える
-                    BattleManeger.EnemyHP -= 12;
+                    BattleManeger.EnemyHP -= 5;
+                    PlayerHP += 10;
                     EventHandler.CallPlaySoundEvent(SoundName.Rhombus);
                     Debug.Log("Player Attack!");
                     Debug.Log("12Point Damege !!");

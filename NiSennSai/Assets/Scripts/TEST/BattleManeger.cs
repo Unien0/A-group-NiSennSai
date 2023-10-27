@@ -145,7 +145,10 @@ public class BattleManeger : MonoBehaviour
 
     void PlayerControl()
     {
-
+        if (PlayerHP <=0)
+        {
+            SceneManager.LoadScene("Over");
+        }
     }
 
     void EnemyControl()

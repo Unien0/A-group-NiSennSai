@@ -5765,6 +5765,7 @@ MonoBehaviour:
   TriangleHint: {fileID: 841154474}
   RhombusHint: {fileID: 886210660}
   StarHint: {fileID: 41894371}
+  playerData: {fileID: 11400000, guid: c619cdd6b94fcc841998344e11cad092, type: 2}
 --- !u!4 &1517513952
 Transform:
   m_ObjectHideFlags: 0
