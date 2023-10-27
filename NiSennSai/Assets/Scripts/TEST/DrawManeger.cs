@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DrawManeger : MonoBehaviour
 {
@@ -103,7 +104,8 @@ public class DrawManeger : MonoBehaviour
         MouseMove();
         // 図形変更
         ShapeChange();
-
+        // 例外処理
+        FunctionAction();
 
     }
 
@@ -1459,5 +1461,18 @@ public class DrawManeger : MonoBehaviour
     {
         // 再度処理を行えるようにする
         fix = false;
+    }
+    void FunctionAction()
+    {
+        // エスケープ = 強制終了
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+        // F1 = リロード
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+
+        }
     }
 }
