@@ -1329,7 +1329,7 @@ public class DrawManeger : MonoBehaviour
                     Instantiate(Triangle_Efect);
                     shake.Shake(0.25f, 0.1f);
                     // ダメージを与える
-                    BattleManeger.EnemyHP -= 8;
+                    BattleManeger.EnemyHP -= 17;
                     EventHandler.CallPlaySoundEvent(SoundName.Triangle);
                     Debug.Log("Player Attack!");
                     Debug.Log("8Point Damege !!");
@@ -1369,7 +1369,7 @@ public class DrawManeger : MonoBehaviour
                     Instantiate(Rhombus_Efect);
                     shake.Shake(0.25f, 0.1f);
                     // ダメージを与える
-                    BattleManeger.EnemyHP -= 5;
+                    BattleManeger.EnemyHP -= 8;
                     PlayerHP += 10;
                     EventHandler.CallPlaySoundEvent(SoundName.Rhombus);
                     Debug.Log("Player Attack!");
@@ -1414,7 +1414,7 @@ public class DrawManeger : MonoBehaviour
                     Instantiate(Star_Efect);
                     shake.Shake(0.25f, 0.1f);
                     // ダメージを与える
-                    BattleManeger.EnemyHP -= 25;
+                    BattleManeger.EnemyHP -= 30;
                     EventHandler.CallPlaySoundEvent(SoundName.Star);
                     Debug.Log("Player Attack!");
                     Debug.Log("25Point Damege !!");
