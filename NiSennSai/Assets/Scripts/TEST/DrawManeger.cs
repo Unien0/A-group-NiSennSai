@@ -170,6 +170,11 @@ public class DrawManeger : MonoBehaviour
         SelectShape = DrowShape.Star;
     }
 
+    public void FixChange()
+    {
+        fix = false;
+    }
+
     void ShapeChange()
     {
 
