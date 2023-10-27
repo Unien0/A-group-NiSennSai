@@ -8,5 +8,6 @@ public class ExplosiveChain : MonoBehaviour
         public void Chain()
     {
         Explosive.SetActive(true);
+        EventHandler.CallPlaySoundEvent(SoundName.Explosion12);
     }
 }

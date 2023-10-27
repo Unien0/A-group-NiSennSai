@@ -38,4 +38,5 @@ public enum SoundName
     //魔法SE
     EnemyAttack1, EnemyAttack2, EnemyAttack3,
     //敵の行動
+    Explosion1, Explosion12,
 }

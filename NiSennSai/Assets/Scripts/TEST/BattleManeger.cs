@@ -138,6 +138,7 @@ public class BattleManeger : MonoBehaviour
         if (EnemyHP <= 0)
         {
             EnemyExplosionEffect.SetActive(true);
+            EventHandler.CallPlaySoundEvent(SoundName.Explosion1);
             //SceneManager.LoadScene("Clear");
         }
     }
